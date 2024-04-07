@@ -37,7 +37,7 @@ public class FilesConfig {
     // Configuring the integration flow for reading files from the input directory
     @Bean
     public IntegrationFlow fileIntegrationFlow() {
-        return IntegrationFlows.from(Files.inboundAdapter(new File(inputDir)) // Inbound adapter for reading files from inputDir
+        return IntegrationFlow.from(Files.inboundAdapter(new File(inputDir)) // Inbound adapter for reading files from inputDir
                 .autoCreateDirectory(true)  // Automatically create the input directory if it doesn't exist
                 .preventDuplicates(true)    // Prevent processing duplicate files
                 .patternFilter("*.txt"),    // Filter files with .txt extension
